@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Info3 zadatak Javascript Quiz</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+    />
+  </head>
+  <body>
+    <div id="nav">
+      <a href="#"
+        ><div
+          class="button orange button-1"
+          onclick="Button1Click()"
+          id="question1"
+        >
+          1
+        </div></a
+      ><br />
+      <a href="#"
+        ><div class="button button-2" onclick="Button2Click()" id="question2">
+          2
+        </div></a
+      ><br />
+      <a href="#"
+        ><div class="button button-3" onclick="Button3Click()" id="question3">
+          3
+        </div></a
+      ><br />
+      <a href="#"
+        ><div class="button button-4" onclick="Button4Click()" id="question4">
+          4
+        </div></a
+      >
+    </div>
+
+    <div class="container container-1 display-block">
+      <br/>
+      <div class="button" id="next" onclick="Button2Click()">
+        <a href="#">Next</a>
+      </div>
+	  <div class="button" id="start" onclick="window.location.reload()">
+        <a href="#">Restart</a>
+      </div>
+	  <div id="q">
+			Question 1
+		</div>	
+      <div id="quiz-options">
+        <div class="upper">
+          <button class="op-11" onclick="button11click()">1</button>
+          <button class="op-12" onclick="button12click()">2</button>
+        </div>
+        <div class="lower">
+          <button class="op-13" onclick="button13click()">3</button>
+          <button class="op-14" onclick="button14click()">4</button>
+        </div>
+      </div>
+    </div>
+    <div class="container container-2 display-none">
+      <br />
+      <div class="button" id="next" onclick="Button3Click()">
+        <a href="#">Next</a>
+      </div>
+      <div class="button" id="prev" onclick="Button1Click()">
+        <a href="#">Previous</a>
+      </div>
+      <div class="button" id="start" onclick="window.location.reload()">
+        <a href="#">Restart</a>
+      </div>
+	  <div id="q">
+			Question 2
+		</div>	
+      <div id="quiz-options">
+        <div class="upper">
+          <button class="op-21" onclick="button21click()">1</button>
+          <button class="op-22" onclick="button22click()">2</button>
+        </div>
+        <div class="lower">
+          <button class="op-23" onclick="button23click()">3</button>
+          <button class="op-24" onclick="button24click()">4</button>
+        </div>
+      </div>
+    </div>
+    <div class="container container-3 display-none">
+      <br />
+      <div class="button" id="next" onclick="Button4Click()">
+        <a href="#">Next</a>
+      </div>
+      <div class="button" id="prev" onclick="Button2Click()">
+        <a href="#">Previous</a>
+      </div>
+      <div class="button" id="start" onclick="window.location.reload()">
+        <a href="#">Restart</a>
+      </div>
+	  <div id="q">
+			Question 3
+		</div>	
+      <div id="quiz-options">
+        <div class="upper">
+          <button class="op-31" onclick="button31click()">1</button>
+          <button class="op-32" onclick="button32click()">2</button>
+        </div>
+        <div class="lower">
+          <button class="op-33" onclick="button33click()">3</button>
+          <button class="op-34" onclick="button34click()">4</button>
+        </div>
+      </div>
+    </div>
+    <div class="container container-4 display-none">
+      <br />
+	  <div class="button" id="start" onclick="window.location.reload()">
+        <a href="#">Restart</a>
+      </div>
+	  <div class="button" id="submit" onclick="submithandle()">
+		<a href="#">Submit</a>
+		</div>  
+      <div class="button" id="prev" onclick="Button3Click()">
+        <a href="#">Previous</a>
+      </div>
+		<div id="q">
+			Question 4
+		</div>	      
+	  <div class="submit-container">
+      <div id="quiz-options">
+        <div class="upper">
+          <button class="op-41" onclick="button41click()">1</button>
+          <button class="op-42" onclick="button42click()">2</button>
+        </div>
+        <div class="lower">
+          <button class="op-43" onclick="button43click()">3</button>
+          <button class="op-44" onclick="button44click()">4</button>
+        </div>			  
+		</div>
+	</div>
+	</div>
+	  
+
+    
+
+    <script type="text/javascript">
+      var counter = 0;
+      var click = 0;
+      var bool11 = false;
+      var bool21 = false;
+      var bool31 = false;
+      var bool41 = false;
+
+      var outerButton1 = document.querySelector(".button-1");
+      var outerButton2 = document.querySelector(".button-2");
+      var outerButton3 = document.querySelector(".button-3");
+      var outerButton4 = document.querySelector(".button-4");
+      var container1 = document.querySelector(".container-1");
+      var container2 = document.querySelector(".container-2");
+      var container3 = document.querySelector(".container-3");
+      var container4 = document.querySelector(".container-4");
+
+      function Button1Click() {
+        if (!container1.classList.contains("display-block")) {
+          container2.classList.remove("display-block");
+          outerButton2.classList.remove("orange");
+          container2.classList.add("display-none");
+          container3.classList.remove("display-block");
+          outerButton3.classList.remove("orange");
+          container3.classList.add("display-none");
+          container4.classList.remove("display-block");
+          outerButton4.classList.remove("orange");
+          container4.classList.add("display-none");
+
+          container1.classList.remove("display-none");
+          container1.classList.add("display-block");
+          outerButton1.classList.add("orange");
+        } else {
+          console.log("first2");
+        }
+      }
+      function Button2Click() {
+        if (!container2.classList.contains("display-block")) {
+          container1.classList.remove("display-block");
+          outerButton1.classList.remove("orange");
+          container1.classList.add("display-none");
+          container3.classList.remove("display-block");
+          outerButton3.classList.remove("orange");
+          container3.classList.add("display-none");
+          container4.classList.remove("display-block");
+          outerButton4.classList.remove("orange");
+          container4.classList.add("display-none");
+
+          container2.classList.remove("display-none");
+          container2.classList.add("display-block");
+          outerButton2.classList.add("orange");
+
+          console.log("first1");
+        } else {
+          console.log("first2");
+        }
+      }
+      function Button3Click() {
+        if (!container3.classList.contains("display-block")) {
+          container2.classList.remove("display-block");
+          outerButton2.classList.remove("orange");
+          container2.classList.add("display-none");
+          container1.classList.remove("display-block");
+          outerButton1.classList.remove("orange");
+          container1.classList.add("display-none");
+          container4.classList.remove("display-block");
+          outerButton4.classList.remove("orange");
+
+          container4.classList.add("display-none");
+
+          container3.classList.remove("display-none");
+          container3.classList.add("display-block");
+          outerButton3.classList.add("orange");
+
+          console.log("first1");
+        } else {
+          console.log("first2");
+        }
+      }
+      function Button4Click() {
+        if (!container4.classList.contains("display-block")) {
+          container2.classList.remove("display-block");
+          outerButton2.classList.remove("orange");
+          container2.classList.add("display-none");
+          container3.classList.remove("display-block");
+          outerButton3.classList.remove("orange");
+
+          container3.classList.add("display-none");
+          container1.classList.remove("display-block");
+          outerButton1.classList.remove("orange");
+
+          container1.classList.add("display-none");
+
+          container4.classList.remove("display-none");
+          container4.classList.add("display-block");
+          outerButton4.classList.add("orange");
+          console.log("first1");
+        } else {
+          console.log("first2");
+        }
+      }
+
+      // inner buttons
+      var button11 = document.querySelector(".op-11");
+      var button12 = document.querySelector(".op-12");
+      var button13 = document.querySelector(".op-13");
+      var button14 = document.querySelector(".op-14");
+
+      function button11click() {
+        click++;
+        bool11 = true;
+        if (!button11.classList.contains("orange")) {
+          button12.classList.remove("orange");
+          button13.classList.remove("orange");
+          button14.classList.remove("orange");
+
+          button11.classList.add("orange");
+        }
+      }
+      function button12click() {
+        click++;
+        bool11 = false;
+        if (!button12.classList.contains("orange")) {
+          button11.classList.remove("orange");
+          button13.classList.remove("orange");
+          button14.classList.remove("orange");
+
+          button12.classList.add("orange");
+        }
+      }
+      function button13click() {
+        click++;
+        bool11 = false;
+        if (!button13.classList.contains("orange")) {
+          button12.classList.remove("orange");
+          button11.classList.remove("orange");
+          button14.classList.remove("orange");
+
+          button13.classList.add("orange");
+        }
+      }
+      function button14click() {
+        click++;
+        bool11 = false;
+        if (!button14.classList.contains("orange")) {
+          button12.classList.remove("orange");
+          button13.classList.remove("orange");
+          button11.classList.remove("orange");
+
+          button14.classList.add("orange");
+        }
+      }
+
+      var button21 = document.querySelector(".op-21");
+      var button22 = document.querySelector(".op-22");
+      var button23 = document.querySelector(".op-23");
+      var button24 = document.querySelector(".op-24");
+
+      function button21click() {
+        click++;
+        bool21 = true;
+        if (!button21.classList.contains("orange")) {
+          button22.classList.remove("orange");
+          button23.classList.remove("orange");
+          button24.classList.remove("orange");
+
+          button21.classList.add("orange");
+        }
+      }
+      function button22click() {
+        click++;
+        bool21 = false;
+        if (!button22.classList.contains("orange")) {
+          button21.classList.remove("orange");
+          button23.classList.remove("orange");
+          button24.classList.remove("orange");
+
+          button22.classList.add("orange");
+        }
+      }
+      function button23click() {
+        click++;
+        bool21 = false;
+        if (!button23.classList.contains("orange")) {
+          button22.classList.remove("orange");
+          button21.classList.remove("orange");
+          button24.classList.remove("orange");
+
+          button23.classList.add("orange");
+        }
+      }
+      function button24click() {
+        click++;
+        bool21 = false;
+        if (!button24.classList.contains("orange")) {
+          button22.classList.remove("orange");
+          button23.classList.remove("orange");
+          button21.classList.remove("orange");
+
+          button24.classList.add("orange");
+        }
+      }
+
+      var button31 = document.querySelector(".op-31");
+      var button32 = document.querySelector(".op-32");
+      var button33 = document.querySelector(".op-33");
+      var button34 = document.querySelector(".op-34");
+
+      function button31click() {
+        click++;
+        bool31 = true;
+        if (!button31.classList.contains("orange")) {
+          button32.classList.remove("orange");
+          button33.classList.remove("orange");
+          button34.classList.remove("orange");
+
+          button31.classList.add("orange");
+        }
+      }
+      function button32click() {
+        click++;
+        bool31 = false;
+        if (!button32.classList.contains("orange")) {
+          button31.classList.remove("orange");
+          button33.classList.remove("orange");
+          button34.classList.remove("orange");
+
+          button32.classList.add("orange");
+        }
+      }
+      function button33click() {
+        click++;
+        bool31 = false;
+        if (!button33.classList.contains("orange")) {
+          button32.classList.remove("orange");
+          button31.classList.remove("orange");
+          button34.classList.remove("orange");
+
+          button33.classList.add("orange");
+        }
+      }
+      function button34click() {
+        click++;
+        bool31 = false;
+        if (!button34.classList.contains("orange")) {
+          button32.classList.remove("orange");
+          button33.classList.remove("orange");
+          button31.classList.remove("orange");
+
+          button34.classList.add("orange");
+        }
+      }
+
+      var button41 = document.querySelector(".op-41");
+      var button42 = document.querySelector(".op-42");
+      var button43 = document.querySelector(".op-43");
+      var button44 = document.querySelector(".op-44");
+
+      function button41click() {
+        click++;
+        bool41 = true;
+        if (!button41.classList.contains("orange")) {
+          button42.classList.remove("orange");
+          button43.classList.remove("orange");
+          button44.classList.remove("orange");
+
+          button41.classList.add("orange");
+        }
+      }
+      function button42click() {
+        click++;
+        bool41 = false;
+        if (!button42.classList.contains("orange")) {
+          button41.classList.remove("orange");
+          button43.classList.remove("orange");
+          button44.classList.remove("orange");
+
+          button42.classList.add("orange");
+        }
+      }
+      function button43click() {
+        click++;
+        bool41 = false;
+        if (!button43.classList.contains("orange")) {
+          button42.classList.remove("orange");
+          button41.classList.remove("orange");
+          button44.classList.remove("orange");
+
+          button43.classList.add("orange");
+        }
+      }
+      function button44click() {
+        click++;
+        bool41 = false;
+        if (!button44.classList.contains("orange")) {
+          button42.classList.remove("orange");
+          button43.classList.remove("orange");
+          button41.classList.remove("orange");
+
+          button44.classList.add("orange");
+        }
+      }
+
+      function submithandle() {
+        if (click >= 4) {
+          if (bool11) {
+            counter++;
+          }
+          if (bool21) {
+            counter++;
+          }
+          if (bool31) {
+            counter++;
+          }
+          if (bool41) {
+            counter++;
+          }
+			alert("Score: " + counter);
+			counter = 0;
+        } else {
+			alert("Please select at least one answer for each question!");
+			counter = 0;
+        }
+      }
+    </script>
+  </body>
+</html>
